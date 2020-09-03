@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\SharedAdapters\NewtonSoftAdapter\NewtonSoftAdapter.csproj" />
+      <ProjectReference Include="..\Adapters\EventStoreAdapter\EventStoreAdapter.csproj" />
+      <ProjectReference Include="..\Adapters\InMemoryAdapter\InMemoryAdapter.csproj" />
+      <ProjectReference Include="..\ApplicationServices\ApplicationServices.csproj" />
+    </ItemGroup>
+
+</Project>
