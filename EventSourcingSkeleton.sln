@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "Framework\Fram
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{607B8050-15A5-4809-9435-1040D9703FBE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedAdapters", "SharedAdapters", "{D2ADC1EE-4D47-4FE8-89A6-B0383AE8E6E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewtonSoftAdapter", "SharedAdapters\NewtonSoftAdapter\NewtonSoftAdapter.csproj", "{3C59159F-4B4D-43FE-848F-C3919A7062F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,12 @@ Global
 		{607B8050-15A5-4809-9435-1040D9703FBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{607B8050-15A5-4809-9435-1040D9703FBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{607B8050-15A5-4809-9435-1040D9703FBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C59159F-4B4D-43FE-848F-C3919A7062F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C59159F-4B4D-43FE-848F-C3919A7062F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C59159F-4B4D-43FE-848F-C3919A7062F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C59159F-4B4D-43FE-848F-C3919A7062F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3C59159F-4B4D-43FE-848F-C3919A7062F7} = {D2ADC1EE-4D47-4FE8-89A6-B0383AE8E6E1}
 	EndGlobalSection
 EndGlobal
