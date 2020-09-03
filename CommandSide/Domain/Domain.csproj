@@ -5,7 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Framework\Framework.csproj" />
+      <ProjectReference Include="..\..\Shared\Shared.csproj" />
+      <ProjectReference Include="..\Framework.Commanding\Framework.Commanding.csproj" />
     </ItemGroup>
 
 </Project>

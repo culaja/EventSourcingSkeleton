@@ -22,6 +22,8 @@ namespace Framework.Commanding
 
         protected void SetIdentity(IAggregateId aggregateId) =>
             _maybeAggregateId = Optional<IAggregateId>.From(aggregateId);
+
+        protected abstract void When(IDomainEvent domainEvent);
         
         public void ClearUncommittedDomainEvents()
         {
@@ -46,15 +48,7 @@ namespace Framework.Commanding
         
         private void ApplyChange(IDomainEvent e, bool isNew)
         {
-            var applyMethodInfo = GetType().GetMethod("Apply", BindingFlags.NonPublic | BindingFlags.Instance, null,  new[] { e.GetType() }, null);
-
-            if (applyMethodInfo == null)
-            {
-                throw new InvalidOperationException($"Aggregate '{GetType().Name}' can't apply '{e.GetType().Name}' event type.");
-            }
-            
-            applyMethodInfo.Invoke(this, new object[] {e});
-
+            When(e);
             IncrementedVersion();
             if (isNew)
             {
