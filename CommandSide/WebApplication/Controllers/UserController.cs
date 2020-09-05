@@ -9,11 +9,11 @@ namespace WebApplication.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public sealed class ProjectController : Controller
+    public sealed class UserController : Controller
     {
         private readonly CommandHandlerContainer _commandHandler;
 
-        public ProjectController(ApplicationContainer applicationContainer)
+        public UserController(ApplicationContainer applicationContainer)
         {
             _commandHandler = applicationContainer.CommandHandlerContainer;
         }

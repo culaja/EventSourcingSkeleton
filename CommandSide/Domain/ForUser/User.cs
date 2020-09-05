@@ -7,7 +7,7 @@ namespace Domain.ForUser
 {
     public sealed class User : AggregateRoot
     {
-        private UserId UserId => UserId.Of(Id.Name);
+        private UserId UserId => UserId.Of(Id.Id);
         
         public static User NewWith(UserId userId)
         {

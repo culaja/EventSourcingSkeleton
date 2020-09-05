@@ -26,7 +26,7 @@ namespace InMemoryAdapter
 
         public void UpdateCacheWith<T>(T aggregateRoot) where T : AggregateRoot
         {
-            var optionalCacheItemPolicy = TryGetCacheItemPolicyFor(aggregateRoot.Id.Type);
+            var optionalCacheItemPolicy = TryGetCacheItemPolicyFor(aggregateRoot.Id.TypeName);
             if (optionalCacheItemPolicy.HasValue)
             {
                 _memoryCache.Set(new CacheItem(aggregateRoot.Id.ToString(), new CachedAggregate(aggregateRoot)), optionalCacheItemPolicy.Value );

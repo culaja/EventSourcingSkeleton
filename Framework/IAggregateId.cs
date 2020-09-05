@@ -1,8 +1,9 @@
 ﻿namespace Framework
 {
-    public interface IAggregateId : IAmId
+    public interface IAggregateId
     {
-        string Type { get; }
-        string Name { get; }
+        string Id { get; }
+        
+        string TypeName { get; }
     }
 }

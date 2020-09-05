@@ -32,7 +32,7 @@ namespace EventStoreAdapter
                 return Ok(aggregateRoot);
             }
 
-            return Fail<T>(AggregateNotFoundInStore(aggregateId.Name));
+            return Fail<T>(AggregateNotFoundInStore(aggregateId.Id));
         }
         
         private static T ReconstructAggregateFrom<T>(IReadOnlyList<IDomainEvent> domainEvents) where T : AggregateRoot, new()
@@ -52,7 +52,7 @@ namespace EventStoreAdapter
             }
             catch (VersionMismatchException)
             {
-                return Fail(AggregateVersionMismatch(aggregateRoot.Id.Name, aggregateRoot.OriginalVersion));
+                return Fail(AggregateVersionMismatch(aggregateRoot.Id.Id, aggregateRoot.OriginalVersion));
             }
         }
     }

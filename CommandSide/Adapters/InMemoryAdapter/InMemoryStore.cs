@@ -55,7 +55,7 @@ namespace InMemoryAdapter
             if (aggregateRoot.OriginalVersion != domainEvents.Count - 1)
             {
                 return Task.FromResult(Fail(AggregateVersionMismatch(
-                    aggregateRoot.Id.Name, 
+                    aggregateRoot.Id.Id, 
                     aggregateRoot.OriginalVersion)));
             }
             
