@@ -15,6 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Adapters\EventStoreAdapter\EventStoreAdapter.csproj" />
       <ProjectReference Include="..\Adapters\InMemoryAdapter\InMemoryAdapter.csproj" />
       <ProjectReference Include="..\ApplicationServices\ApplicationServices.csproj" />
       <ProjectReference Include="..\Domain\Domain.csproj" />

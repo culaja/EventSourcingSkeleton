@@ -23,7 +23,7 @@ namespace Tests
         
         public static readonly UserId JohnDoeUserId = UserId.Of("JohnDoe");
         
-        public static readonly UserEvents.UserCreated JohnDoeUserCreated = new UserEvents.UserCreated(JohnDoeUserId.Id, "JohnDoe");
+        public static readonly UserEvents.UserCreated JohnDoeUserCreated = new UserEvents.UserCreated(JohnDoeUserId);
         
         public static Expression<Func<IDomainEvent, bool>> EventOf<T>() =>
             e => e.GetType() == typeof(T);

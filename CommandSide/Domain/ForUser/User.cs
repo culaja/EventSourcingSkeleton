@@ -12,7 +12,7 @@ namespace Domain.ForUser
         public static User NewWith(UserId userId)
         {
             var user = new User();
-            user.ApplyChange(new UserCreated(userId, userId));
+            user.ApplyChange(new UserCreated(userId));
             return user;
         }
 
