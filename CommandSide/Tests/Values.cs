@@ -16,6 +16,11 @@ namespace Tests
                 .Use(store)
                 .Build();
         
+        public static IDomainEventHandler StubbedDomainEventHandlerContainerUsing(IStore store) =>
+            DomainEventHandlerContainerBuilder.New()
+                .Use(store)
+                .Build();
+        
         public static readonly UserId JohnDoeUserId = UserId.Of("JohnDoe");
         
         public static readonly UserEvents.UserCreated JohnDoeUserCreated = new UserEvents.UserCreated(JohnDoeUserId.Id, "JohnDoe");
