@@ -1,0 +1,43 @@
+version: '3.3'
+
+services:
+    event_store:
+        container_name: x-review-core-event-store
+        image: eventstore/eventstore:release-5.0.8
+        restart: unless-stopped
+        ports:
+          - 1113:1113
+          - 2113:2113
+    postgres:
+        container_name: x-review-postgres
+        image: postgres
+        restart: unless-stopped
+        environment:
+          - 'POSTGRES_USER=TestUser'
+          - 'POSTGRES_PASSWORD=testing'
+          - 'POSTGRES_DB=x-review'
+        ports:
+          - 5432:5432
+    postgres-admin:
+        image: adminer
+        restart: unless-stopped
+        ports:
+          - 8080:8080
+    seb_command:
+        container_name: x-review-seb-command
+        image: culaja/scalableeventbus:1.0
+        restart: unless-stopped
+        command: ["dotnet", "ScalableEventBus.dll"]
+        environment:
+          - 'Application__EventStoreConnectionString=tcp://admin:changeit@x-review-core-event-store:1113'
+          - 'Application__StreamPrefix=Domain'
+          - 'Application__DestinationServiceUri=http://host.docker.internal:5000/DomainEvent/Apply'
+    seb_query:
+        container_name: x-review-seb-query
+        image: culaja/scalableeventbus:1.0
+        restart: unless-stopped
+        command: ["dotnet", "ScalableEventBus.dll"]
+        environment:
+          - 'Application__EventStoreConnectionString=tcp://admin:changeit@x-review-core-event-store:1113'
+          - 'Application__StreamPrefix=Domain'
+          - 'Application__DestinationServiceUri=http://host.docker.internal:10000/DomainEvent/Apply'
