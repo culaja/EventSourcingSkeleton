@@ -50,7 +50,7 @@ namespace Tests.IntegrationTests
         
         public sealed class TestAggregateId : AggregateId<TestAggregate>
         {
-            public TestAggregateId(string aggregateName) : base(aggregateName)
+            public TestAggregateId(string aggregateId) : base(aggregateId)
             {
             }
         
@@ -59,7 +59,7 @@ namespace Tests.IntegrationTests
 
         public sealed class TestAggregateCreated : DomainEvent
         {
-            public TestAggregateCreated(string aggregateName) : base(aggregateName)
+            public TestAggregateCreated(string aggregateId) : base(aggregateId)
             {
             }
             
