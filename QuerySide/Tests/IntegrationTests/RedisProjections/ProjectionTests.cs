@@ -3,15 +3,18 @@ using ApplicationServices;
 using ApplicationServices.ProjectionDefinitions.ForUser;
 using Framework;
 using Framework.Querying;
-using InMemoryProjections;
+using RedisProjections;
+using static System.Guid;
 
-namespace Tests.IntegrationTests.InMemoryProjections
+namespace Tests.IntegrationTests.RedisProjections
 {
     public abstract class ProjectionTests
     {
         private readonly DomainEventProjectionsContainer _domainEventProjectionsContainer =
             DomainEventProjectionsContainerBuilder.New()
-                .Use(InMemoryProjectionsBuilder.BuildCreatedUsersViewProjection())
+                .Use(RedisProjectionsBuilder.NewWith("localhost")
+                    .WithCreatedUsersViewProjectionHashName(NewGuid().ToString())
+                    .BuildCreatedUsersViewProjection())
                 .Build();
 
         protected IProjection<CreatedUsersView> CreatedUsersViewProjection => _domainEventProjectionsContainer;

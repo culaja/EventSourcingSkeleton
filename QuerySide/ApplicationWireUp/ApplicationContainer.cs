@@ -1,8 +1,8 @@
 ﻿using ApplicationServices;
 using ApplicationServices.ProjectionDefinitions.ForUser;
 using Framework.Querying;
-using InMemoryProjections;
 using NewtonSoftAdapter;
+using RedisProjections;
 
 namespace ApplicationWireUp
 {
@@ -22,8 +22,9 @@ namespace ApplicationWireUp
         
         public static ApplicationContainer Build()
         {
+            var redisProjectionsBuilder = RedisProjectionsBuilder.NewWith("localhost");
             var domainEventProjectionsContainer = DomainEventProjectionsContainerBuilder.New()
-                .Use(InMemoryProjectionsBuilder.BuildCreatedUsersViewProjection())
+                .Use(redisProjectionsBuilder.BuildCreatedUsersViewProjection())
                 .Build();
             
             var domainEventResolver = NewtonSoftDomainEventResolver.New();

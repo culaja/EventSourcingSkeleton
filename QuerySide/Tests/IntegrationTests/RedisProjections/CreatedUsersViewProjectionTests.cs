@@ -3,7 +3,7 @@ using FluentAssertions;
 using Shared;
 using Xunit;
 
-namespace Tests.IntegrationTests.InMemoryProjections
+namespace Tests.IntegrationTests.RedisProjections
 {
     public sealed class CreatedUsersViewProjectionTests : ProjectionTests
     {

@@ -17,6 +17,9 @@ namespace ApplicationServices.ProjectionDefinitions.ForUser
         public IReadOnlyList<string> Users => _usersHashSet.ToList();
         
         public static CreatedUsersView New() => new CreatedUsersView(new HashSet<string>());
+        
+        public static CreatedUsersView From(IReadOnlyList<string> users)
+            => new CreatedUsersView(new HashSet<string>(users));
 
         public CreatedUsersView AddUser(string userId) => 
             new CreatedUsersView(new HashSet<string>(_usersHashSet) {userId});

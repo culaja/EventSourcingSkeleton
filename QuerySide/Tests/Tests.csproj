@@ -17,6 +17,7 @@
     <ItemGroup>
       <ProjectReference Include="..\..\Framework\Framework.csproj" />
       <ProjectReference Include="..\ApplicationWireUp\ApplicationWireUp.csproj" />
+      <ProjectReference Include="..\RedisProjections\RedisProjections.csproj" />
     </ItemGroup>
 
 </Project>

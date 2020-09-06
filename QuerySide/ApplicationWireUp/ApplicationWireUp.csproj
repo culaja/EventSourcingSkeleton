@@ -7,7 +7,7 @@
     <ItemGroup>
       <ProjectReference Include="..\..\SharedAdapters\NewtonSoftAdapter\NewtonSoftAdapter.csproj" />
       <ProjectReference Include="..\ApplicationServices\ApplicationServices.csproj" />
-      <ProjectReference Include="..\InMemoryProjections\InMemoryProjections.csproj" />
+      <ProjectReference Include="..\RedisProjections\RedisProjections.csproj" />
     </ItemGroup>
 
 </Project>
