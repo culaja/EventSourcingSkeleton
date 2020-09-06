@@ -20,9 +20,9 @@ namespace ApplicationWireUp
             DomainEventResolver = domainEventResolver;
         }
         
-        public static ApplicationContainer Build()
+        public static ApplicationContainer Build(string redisConnectionString)
         {
-            var redisProjectionsBuilder = RedisProjectionsBuilder.NewWith("localhost");
+            var redisProjectionsBuilder = RedisProjectionsBuilder.NewWith(redisConnectionString);
             var domainEventProjectionsContainer = DomainEventProjectionsContainerBuilder.New()
                 .Use(redisProjectionsBuilder.BuildCreatedUsersViewProjection())
                 .Build();

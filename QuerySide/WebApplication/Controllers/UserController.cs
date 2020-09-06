@@ -19,7 +19,6 @@ namespace WebApplication.Controllers
         }
 
         [HttpGet]
-        [Route(nameof(Get))]
         public async Task<IActionResult> Get()
         {
             var maybeView = await _createdUsersViewProjection.Fetch(string.Empty);
